@@ -12,10 +12,14 @@ red -> new state is 'ALARM'
 
 orange -> new state is 'INSUFFICIENT_DATA'
 
-### What you need for the function
+There is also a lot more detailed information in each message such as the trigger, reason, state change, alarm description, and alarm name
+
+The messages are formatted in a way that is easy to read and easier to respond to. 
+
+## What you need for the function
 You need to have an AWS role that has the 
 'AWSLambdaBasicExecutionRole' attached to it as well as 
-a role that can do kms decrytion. If you need that policy,
+a role that can do KMS decrytion. If you need that policy,
 here it is:
 
     {    
@@ -39,10 +43,10 @@ You also need two environment variables attached to your Lambda function:
 
 channelName: the slack channel name that the message will be posted in
 
-kmsEncryptedHook: the kms encrypted webhook URL from the slack URL
+kmsEncryptedHook: the KMS encrypted webhook URL from the slack URL
 
-### To get a kms key and encrypt the Slack webhook URL
-You will need to generate a kms key from here:
+### To get a KMS key and encrypt the Slack webhook URL
+You will need to generate a KMS key from here:
 
 https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html
 
