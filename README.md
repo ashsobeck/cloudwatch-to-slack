@@ -34,3 +34,18 @@ here it is:
           }
        ]   
      }
+
+You also need two environment variables attached to your Lambda function:
+
+channelName: the slack channel name that the message will be posted in
+
+kmsEncryptedHook: the kms encrypted webhook URL from the slack URL
+
+### To get a kms key and encrypt the Slack webhook URL
+You will need to generate a kms key from here:
+
+https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html
+
+Create a key from there and then click on the encryption information tab of the environment variables
+
+You only want to encrypt the webhook URL as the channel name does not need to be encrypted.
