@@ -7,7 +7,9 @@ Messages have "attachments" so there is a colored side bar based on what
 the alarm has changed from 
 
 green -> new state is 'OK'
+
 red -> new state is 'ALARM'
+
 orange -> new state is 'INSUFFICIENT_DATA'
 
 ### What you need for the function
