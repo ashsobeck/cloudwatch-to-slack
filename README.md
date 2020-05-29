@@ -16,10 +16,11 @@ You need to have an AWS role that has the
 a role that can do kms decrytion. If you need that policy,
 here it is:
 
-{
-    "Version": "2012-10-17",
-    "Statement": [
+    {    
+     "Version": "2012-10-17",
+     "Statement": [
         {
+        
             "Sid": "Stmt1443036478000",
             "Effect": "Allow",
             "Action": [
@@ -28,6 +29,6 @@ here it is:
             "Resource": [
                 "arn:aws:kms:us-east-2:517592134955:key/99ac5342-2b1c-42e8-8080-f8ac7d8b0abb"
             ]
-        }
-    ]
-}
+          }
+       ]   
+     }
