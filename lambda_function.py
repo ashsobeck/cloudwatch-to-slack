@@ -10,10 +10,18 @@ from urllib.error import URLError, HTTPError
 
 # The base-64 encoded, encrypted key (CiphertextBlob) stored in the kmsEncryptedHookUrl environment variable
 ENCRYPTED_HOOK_URL = os.environ['kmsEncryptedHook']
+
+#if you don't have or want a kms encrypted URL, you can just have the slack url here without the https protocal before it
+#UNENCRYPTED_HOOK_URL = os.environ['hookUrl']
+
 # The Slack channel to send a message to stored in the slackChannel environment variable
 SLACK_CHANNEL = os.environ['channelName']
 
+# for encrypted webhooks
 HOOK_URL = "https://" + boto3.client('kms').decrypt(CiphertextBlob=b64decode(ENCRYPTED_HOOK_URL))['Plaintext'].decode('utf-8')
+
+# for unencrypted webhooks
+# HOOK_URL = "https://" + UNENCRYPTED_HOOK_URL
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)

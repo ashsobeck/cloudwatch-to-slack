@@ -16,7 +16,9 @@ There is also a lot more detailed information in each message such as the trigge
 
 The messages are formatted in a way that is easy to read and easier to respond to. 
 
-## What you need for the function
+There's also an option to not have a KMS encrypted webhook if that isn't something you need or want
+
+## What you need for the function (if you want KMS encryption)
 You need to have an AWS role that has the 
 'AWSLambdaBasicExecutionRole' attached to it as well as 
 a role that can do KMS decrytion. If you need that policy,
@@ -41,9 +43,16 @@ here it is:
 
 You also need two environment variables attached to your Lambda function:
 
-channelName: the slack channel name that the message will be posted in
+channelName: the slack channel name that the message will be posted in (ie: general)
 
 kmsEncryptedHook: the KMS encrypted webhook URL from the slack URL
+
+OR
+
+hookUrl: just the webhook URL without the https:// protocol before the URL
+
+    If you want this, no need to read the next section, just create another environment variable
+    that will 
 
 ### To get a KMS key and encrypt the Slack webhook URL
 You will need to generate a KMS key from here:
